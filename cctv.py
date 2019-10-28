@@ -5,29 +5,22 @@ import os
 import pathlib
 import dlib
 import sys
+
+
+
 #dlib.DLIB_USE_CUDA = True
 
-# This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
-# other example, but it includes some basic performance tweaks to make things run a lot faster:
+
 #   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
 #   2. Only detect faces in every other frame of video.
 
-# PLEASE NOTE: This example requires OpenCV (the `cv2` library) to be installed only to read from your webcam.
-# OpenCV is *not* required to use the face_recognition library. It's only required if you want to run this
-# specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
 
-# Get a reference to webcam #0 (the default one)
 
 
 dir = os.path.join(os.getcwd(),'faces')
 list = os.listdir(dir)
 prevlen = len(list)
-
-
-
-
 i = 0
-
 video_capture = cv2.VideoCapture(0)
 
 known_face_encodings = []
@@ -42,9 +35,12 @@ imgpath = os.path.join(os.getcwd(),'faces')
 
 for filename in os.listdir(imgpath) :
     #print(os.path.join(imgpath , filename))
+    print("Filename:",filename)
     impath = os.path.join(imgpath , filename)
     image = face_recognition.load_image_file(impath)
+    #print(image)
     image_encoding = face_recognition.face_encodings(image)[0]
+    #print(image_encoding)
     known_face_encodings.append(image_encoding)
     #print(known_face_encodings)
     temppath = filename
@@ -84,8 +80,8 @@ while True:
             matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
             name = "Unknown"
 
-            print(matches)
-            print(name)
+            #print("matches : ",matches)
+            #print("name : ",name)
             #if len(matches) != 0 :
             #    print ("Hi Jyo , Test Success")                
             #else :
@@ -98,13 +94,16 @@ while True:
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-            print("face dist :",face_distances)
+            #print("face dist :",face_distances)
             best_match_index = np.argmin(face_distances)
+            #print("Best Match Index: ",best_match_index)
             if matches[best_match_index]:
                 name = known_face_names[best_match_index]
 
             face_names.append(name)
-            print("face name : ",face_names)
+            print("Detected : ",face_names)
+            #if face_names[0] == "Unknown":
+            #    continue
 
     process_this_frame = not process_this_frame
 
@@ -132,18 +131,18 @@ while True:
 
 ########################################## Image Generator
 
-    if len(face_names) != 0 :
-        print("save to folder face")
+    if len(face_names) != 0 and face_names[0] != "Unknown":
+        #print("save to folder face")
         for face in face_names :
             path = os.getcwd()
             newpath = os.path.join(path,"detected",face)
             if not os.path.exists(newpath) :
-                print("Creating path for ",face)
+                #print("Creating path for ",face)
                 os.mkdir(newpath)
             name = face + str(i) + ".jpg"
             i += 1
             facepath = os.path.join(newpath , name)
-            print(" face path is : ",facepath)
+            #print(" face path is : ",facepath)
             while os.path.isfile(facepath):
                 i *= 1000
                 break 
@@ -154,7 +153,7 @@ while True:
             
             
 
-            print("path is :",newpath)
+            #print("path is :",newpath)
 
     
     dir = os.path.join(os.getcwd(),'faces')
