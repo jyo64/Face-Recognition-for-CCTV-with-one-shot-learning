@@ -8,9 +8,9 @@ def dbupdate():
     mycursor = mydb.cursor()
     dir = os.path.join(os.getcwd(),'detected')
     list1 = os.listdir(dir)
-    print(list1)
+    #print(list1)
     for x in list1 :        
-        #print(x)
+        print(x," Detected!!")
         sql ="UPDATE userdata SET found = 1 WHERE name =%s " 
         val = (x,)       
         mycursor.execute(sql,val)
