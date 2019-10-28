@@ -13,5 +13,9 @@ To Install DLIB , First Install Microsoft Visual Studio Community and install CM
 
 Then Goto to the extracted project location using CMD or Shell and execute pip install -r requirements.txt
 
+To just run the Face Recogntion Script , Run cctv.py
+
+If you want to run the Face Recognition Script along with the Database and server (I've Used Laragon Here) just execute main_script.bat
+
 
 
