@@ -1,0 +1,5 @@
+face resize ( pip install python-resize-image )
+android app
+same person multiple images
+
+multithread
