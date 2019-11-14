@@ -1,5 +1,5 @@
 face resize ( pip install python-resize-image )
 android app
-same person multiple images
+same person multiple images improvisation so lot of images same person we get same person more accuracy
 
 multithread

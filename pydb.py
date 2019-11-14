@@ -14,6 +14,6 @@ mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM userdata")
 
 myresult = mycursor.fetchall()
-
+print(myresult)
 for x in myresult:
   print(x)

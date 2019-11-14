@@ -7,10 +7,12 @@ def dbupdate():
     mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="facedb")
     mycursor = mydb.cursor()
     dir = os.path.join(os.getcwd(),'detected')
+    #print(dir)
     list1 = os.listdir(dir)
+
     #print(list1)
     for x in list1 :        
-        print(x," Detected!!")
+        #print(x," Detected!!")
         sql ="UPDATE userdata SET found = 1 WHERE name =%s " 
         val = (x,)       
         mycursor.execute(sql,val)
