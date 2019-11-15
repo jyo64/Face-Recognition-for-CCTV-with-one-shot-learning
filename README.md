@@ -18,4 +18,11 @@ To just run the Face Recogntion Script , Run cctv.py
 If you want to run the Face Recognition Script along with the Database and server (I've Used Laragon Here) just execute main_script.bat (Username and password of testing database is both "root")
 
 
+To run the whole thing :
+
+1:  Properly initiate the server connection in addtodb.php and addtodb.py
+2: Start the server
+3: run cctv.py and dbupdater.py parallely
+
+
 
