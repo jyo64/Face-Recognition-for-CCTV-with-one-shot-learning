@@ -8,7 +8,6 @@ This project works by uploading the image of a person to the server and finding 
 1. Then Goto to the extracted project location using CMD or Shell and execute pip install -r requirements.txt <br/>
 1. To just run the Face Recogntion Script , Run cctv.py <br/>
 
-If you want to run the Face Recognition Script along with the Database and server (I've Used Laragon Here) just execute main_script.bat (Username and password of testing database is both "root")
 
 
 ### To execute the program :
