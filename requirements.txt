@@ -1,5 +1,5 @@
 opencv_python==4.1.1.26
 dlib==19.18.0
 face_recognition==1.2.3
-numpy==1.17.2
+numpy==1.22.0
 mysql_connector_repackaged==0.3.1
